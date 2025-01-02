@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/12/09 15:09:57.000.618,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 08:07:14.000.896,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 08:12:01.000.922,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uMain.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 08:12:01.000.922,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uMain.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 08:12:44.000.919,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\ProjectERP.dproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2024/12/17 08:13:19.000.073,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 08:14:25.000.620,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\DB\uDM.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 08:14:25.000.620,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\DB\uDM.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 10:08:51.000.157,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 10:09:09.000.966,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 10:10:18.000.929,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.pas</Transaction>
+    <Transaction>2024/12/17 10:10:18.000.929,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.dfm</Transaction>
+    <Transaction>2024/12/17 10:20:13.000.343,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.pas=</Transaction>
+    <Transaction>2024/12/17 10:20:30.000.569,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 10:21:33.000.471,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uFunctions\uAddClient.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 10:21:33.000.471,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uFunctions\uAddClient.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 10:46:59.000.568,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uFunctions\uAddClient.pas=</Transaction>
+    <Transaction>2024/12/17 10:47:11.000.023,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 10:47:59.000.633,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 10:47:59.000.633,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 11:33:07.000.297,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 11:34:21.000.334,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddProduct.pas</Transaction>
+    <Transaction>2024/12/17 11:34:21.000.334,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddProduct.dfm</Transaction>
+    <Transaction>2024/12/17 13:14:10.000.258,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 13:15:43.000.871,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameStock.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 13:15:43.000.871,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameStock.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 14:38:29.000.849,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.pas=</Transaction>
+    <Transaction>2024/12/17 14:39:07.000.195,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/17 14:40:52.000.167,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm</Transaction>
+    <Transaction>2024/12/17 14:40:52.000.167,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Frames\uFrameAddClient.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/18 11:13:20.000.962,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/18 11:14:26.000.923,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uGrid.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm</Transaction>
+    <Transaction>2024/12/18 11:14:26.000.923,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uGrid.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/18 11:22:27.000.529,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uGrid.pas=</Transaction>
+    <Transaction>2024/12/18 15:57:45.000.063,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/18 15:59:30.000.363,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\DUALLIST.pas</Transaction>
+    <Transaction>2024/12/18 16:01:05.000.077,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/27 14:14:41.000.831,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/27 15:26:16.000.806,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/27 15:26:37.000.957,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uConf.dfm</Transaction>
+    <Transaction>2024/12/27 15:26:37.000.957,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uConf.pas</Transaction>
+    <Transaction>2024/12/27 15:39:13.000.971,=C:\Users\User\Documents\Embarcadero\Studio\Projects\GerenciadorTarefas\VCL\Exe\Win32Debug\naosei.pas</Transaction>
+    <Transaction>2024/12/27 16:04:08.000.885,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/27 16:05:09.000.388,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/27 16:59:04.000.994,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\OKCANCL2.pas</Transaction>
+    <Transaction>2024/12/27 17:00:59.000.655,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Dlg\dlgConfirm.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\OKCANCL2.dfm</Transaction>
+    <Transaction>2024/12/27 17:00:59.000.655,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\Dlg\dlgConfirm.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\OKCANCL2.pas</Transaction>
+    <Transaction>2024/12/30 17:00:41.000.484,=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas</Transaction>
+    <Transaction>2024/12/30 17:01:03.000.849,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.pas=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uVenda.pas</Transaction>
+    <Transaction>2024/12/30 17:01:03.000.849,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\DProj\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\VCL\Units\uVenda.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

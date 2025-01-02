@@ -1,0 +1,63 @@
+object dlgConfirmDelete: TdlgConfirmDelete
+  Left = 227
+  Top = 108
+  BorderStyle = bsDialog
+  ClientHeight = 65
+  ClientWidth = 316
+  Color = clBtnFace
+  ParentFont = True
+  KeyPreview = True
+  Position = poScreenCenter
+  TextHeight = 15
+  object pnl: TPanel
+    Left = 0
+    Top = 0
+    Width = 316
+    Height = 65
+    Align = alClient
+    BevelOuter = bvNone
+    Padding.Left = 5
+    Padding.Top = 5
+    Padding.Right = 5
+    Padding.Bottom = 5
+    TabOrder = 0
+    object lbl: TLabel
+      Left = 155
+      Top = 5
+      Width = 6
+      Height = 55
+      Align = alClient
+      Alignment = taCenter
+      Caption = 'lbl'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Layout = tlCenter
+      Visible = False
+      ExplicitWidth = 19
+      ExplicitHeight = 18
+    end
+    object btnCancel: TButton
+      Left = 5
+      Top = 5
+      Width = 150
+      Height = 55
+      Align = alLeft
+      Caption = 'Cancelar'
+      TabOrder = 0
+    end
+    object btnConfirm: TButton
+      Left = 161
+      Top = 5
+      Width = 150
+      Height = 55
+      Align = alRight
+      Caption = 'Sim'
+      TabOrder = 1
+      OnClick = btnConfirmClick
+    end
+  end
+end

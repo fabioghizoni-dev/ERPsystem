@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/12/17 08:13:04.000.378,C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP\GroupERP.groupproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\ProjectGroup1.groupproj</Transaction>
+    <Transaction>2025/01/01 18:20:30.000.816,D:\MEUS DOCUMENTOS\Documents\Embarcadero\Studio\Projects\ERP\GroupERP.groupproj=D:\MEUS DOCUMENTOS\Documents\Embarcadero\Studio\Projects\ERP\GroupERPsos.groupproj</Transaction>
+  </Transactions>
+	<Default.Personality>
+		<Projects ActiveProject="C:\Users\User\Documents\Embarcadero\Studio\Projects\ERP-main\VCL\DProj\ProjectERP.dproj"/>
+	</Default.Personality>
+</BorlandProject>
