@@ -97,13 +97,9 @@ var
 begin
 
   qry := TFDQuery.Create(nil);
+  qry.Connection := DM.ConnDbERP;
   edtNameProd.Text := 'Coca 2L';
   pNomeProd := edtNameProd.Text;
-
-  if DM.ConnDbERP.Connected = True then
-  begin
-    qry.Connection := DM.ConnDbERP;
-  end;
 
   if Trim(edtCodProd.Text) = EmptyStr then
   begin
@@ -151,15 +147,11 @@ begin
           if qry.IsEmpty then
           begin
             ShowMessage('Produto não existe');
-          end;
+          end
+          else
+            ShowMessage('Produto já existe, deseja edita-lo?');
 
         end;
-
-      end
-      else
-      begin
-
-        ShowMessage('Produto já existe, deseja edita-lo?');
 
       end;
 

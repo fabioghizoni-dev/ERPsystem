@@ -97,13 +97,9 @@ var
 begin
 
   qry := TFDQuery.Create(nil);
+  qry.Connection := DM.ConnDbERP;
   edtNameProd.Text := 'Coca 2L';
   pNomeProd := edtNameProd.Text;
-
-  if DM.ConnDbERP.Connected = True then
-  begin
-    qry.Connection := DM.ConnDbERP;
-  end;
 
   if Trim(edtCodProd.Text) = EmptyStr then
   begin
@@ -114,6 +110,27 @@ begin
     pId := StrToInt(edtCodProd.Text);
 
   try
+
+    if not (Trim(edtNameProd.Text) = EmptyStr) then
+    begin
+
+      qry.SQL.Text :=
+
+      'SELECT id_produto, nome_produto FROM produtos WHERE id_produto = :pId ' +
+      'AND nome_produto = :pNomeProd;';
+
+      qry.ParamByName('pNomeProd').AsString := pNomeProd;
+      qry.ParamByName('pId').AsInteger := pId;
+
+      qry.Open;
+
+      if not qry.IsEmpty then
+      begin
+        ShowMessage('Este produto foi listado' + sLineBreak + ' ' +
+        IntToStr(pId) + sLineBreak + ' ' + pNomeProd);
+      end;
+
+    end;
 
     if not (Trim(edtCodProd.Text) = EmptyStr) then
     begin
@@ -132,36 +149,9 @@ begin
 
       if qry.IsEmpty then
       begin
-
-        if not (Trim(edtNameProd.Text) = EmptyStr) then
-        begin
-
-          qry.Close;
-
-          qry.SQL.Text :=
-
-          'SELECT id_produto, nome_produto FROM produtos WHERE id_produto = :pId ' +
-          'AND nome_produto = :pNomeProd;';
-
-          qry.ParamByName('pNomeProd').AsString := pNomeProd;
-          qry.ParamByName('pId').AsInteger := pId;
-
-          qry.Open;
-
-          if qry.IsEmpty then
-          begin
-            ShowMessage('Produto não existe');
-          end;
-
-        end;
-
+        ShowMessage('Este produto não existe' + sLineBreak + sLineBreak + ' ' + pNomeProd);
       end
       else
-      begin
-
-        ShowMessage('Produto já existe, deseja edita-lo?');
-
-      end;
 
     end;
 
