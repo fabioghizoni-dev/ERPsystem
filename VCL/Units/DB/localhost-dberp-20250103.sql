@@ -2,7 +2,7 @@
 -- PostgreSQL database cluster dump
 --
 
--- Started on 2025-01-03 11:44:00
+-- Started on 2025-01-03 17:27:24
 
 SET default_transaction_read_only = off;
 
@@ -44,7 +44,7 @@ ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-01-03 11:44:00
+-- Started on 2025-01-03 17:27:24
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -58,7 +58,7 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
--- Completed on 2025-01-03 11:44:01
+-- Completed on 2025-01-03 17:27:24
 
 --
 -- PostgreSQL database dump complete
@@ -75,7 +75,7 @@ SET row_security = off;
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-01-03 11:44:01
+-- Started on 2025-01-03 17:27:24
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -296,7 +296,7 @@ ALTER TABLE ONLY public.produto
     ADD CONSTRAINT produto_pkey PRIMARY KEY (id);
 
 
--- Completed on 2025-01-03 11:44:01
+-- Completed on 2025-01-03 17:27:25
 
 --
 -- PostgreSQL database dump complete
@@ -313,7 +313,7 @@ ALTER TABLE ONLY public.produto
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-01-03 11:44:01
+-- Started on 2025-01-03 17:27:25
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1080,7 +1080,7 @@ ALTER TABLE ONLY public.professores
     ADD CONSTRAINT professores_iddepartamento_fkey FOREIGN KEY (iddepartamento) REFERENCES public.departamentos(id);
 
 
--- Completed on 2025-01-03 11:44:02
+-- Completed on 2025-01-03 17:27:25
 
 --
 -- PostgreSQL database dump complete
@@ -1097,7 +1097,7 @@ ALTER TABLE ONLY public.professores
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-01-03 11:44:02
+-- Started on 2025-01-03 17:27:25
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1240,7 +1240,7 @@ ALTER TABLE ONLY public.conta
     ADD CONSTRAINT conta_pkey PRIMARY KEY (id);
 
 
--- Completed on 2025-01-03 11:44:02
+-- Completed on 2025-01-03 17:27:25
 
 --
 -- PostgreSQL database dump complete
@@ -1257,7 +1257,7 @@ ALTER TABLE ONLY public.conta
 -- Dumped from database version 17.2
 -- Dumped by pg_dump version 17.2
 
--- Started on 2025-01-03 11:44:02
+-- Started on 2025-01-03 17:27:25
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1566,8 +1566,8 @@ CREATE TABLE public.vendas (
     nome_prod_vendido character varying,
     id_prod_vendido integer,
     data_venda date,
-    qntd_total_vendida integer,
-    preco_prod money
+    preco_prod money,
+    qntd_vendida integer
 );
 
 
@@ -1621,19 +1621,19 @@ COMMENT ON COLUMN public.vendas.data_venda IS 'Data da Venda';
 --
 -- TOC entry 4950 (class 0 OID 0)
 -- Dependencies: 223
--- Name: COLUMN vendas.qntd_total_vendida; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN vendas.preco_prod; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN public.vendas.qntd_total_vendida IS 'Quantidade de Vendas';
+COMMENT ON COLUMN public.vendas.preco_prod IS 'Preço do Produto';
 
 
 --
 -- TOC entry 4951 (class 0 OID 0)
 -- Dependencies: 223
--- Name: COLUMN vendas.preco_prod; Type: COMMENT; Schema: public; Owner: postgres
+-- Name: COLUMN vendas.qntd_vendida; Type: COMMENT; Schema: public; Owner: postgres
 --
 
-COMMENT ON COLUMN public.vendas.preco_prod IS 'Preço do Produto';
+COMMENT ON COLUMN public.vendas.qntd_vendida IS 'Quantidade que foi Vendida';
 
 
 --
@@ -1667,7 +1667,9 @@ ALTER TABLE ONLY public.produtos ALTER COLUMN id_produto SET DEFAULT nextval('pu
 --
 
 COPY public.clientes (id_cliente, nome_cliente, cpf_cliente, celular_cliente, data_adicionado) FROM stdin;
-2	:pNome			2025-01-03
+1	Fabio	10146241932	(43)99828-0078	2025-01-03
+2	Junior	601.144.370-25	(84) 96943-0755	2025-01-03
+3	Carlos	558.080.490-32	(96) 98366-2107	2025-01-03
 \.
 
 
@@ -1703,7 +1705,7 @@ COPY public.produtos (id_produto, nome_produto, preco_unitario, qntd_estoque) FR
 -- Data for Name: vendas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.vendas (nome_vendedor, nome_prod_vendido, id_prod_vendido, data_venda, qntd_total_vendida, preco_prod) FROM stdin;
+COPY public.vendas (nome_vendedor, nome_prod_vendido, id_prod_vendido, data_venda, preco_prod, qntd_vendida) FROM stdin;
 \.
 
 
@@ -1713,7 +1715,7 @@ COPY public.vendas (nome_vendedor, nome_prod_vendido, id_prod_vendido, data_vend
 -- Name: clientes_id_cliente_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.clientes_id_cliente_seq', 2, true);
+SELECT pg_catalog.setval('public.clientes_id_cliente_seq', 5, true);
 
 
 --
@@ -1779,13 +1781,13 @@ ALTER TABLE ONLY public.vendas
     ADD CONSTRAINT vendas_unique_id_prod UNIQUE (id_prod_vendido);
 
 
--- Completed on 2025-01-03 11:44:02
+-- Completed on 2025-01-03 17:27:25
 
 --
 -- PostgreSQL database dump complete
 --
 
--- Completed on 2025-01-03 11:44:02
+-- Completed on 2025-01-03 17:27:25
 
 --
 -- PostgreSQL database cluster dump complete

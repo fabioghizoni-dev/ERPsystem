@@ -46,7 +46,6 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 116
         object lblAmount: TLabel
           AlignWithMargins = True
           Left = 332
@@ -106,7 +105,6 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 1
-        ExplicitTop = 141
         object pnlAmount: TPanel
           Left = 332
           Top = 0
@@ -167,7 +165,6 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 2
-        ExplicitTop = 232
         object lblPrice: TLabel
           Left = 0
           Top = 0
@@ -199,7 +196,6 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 3
-        ExplicitTop = 257
         object pnlPrice: TPanel
           Left = 0
           Top = 0
@@ -292,8 +288,6 @@ object frameAddProduct: TframeAddProduct
           Color = 16580327
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 3
-          ExplicitHeight = 41
           object edtDate: TEdit
             Left = 0
             Top = 0
@@ -320,8 +314,6 @@ object frameAddProduct: TframeAddProduct
             State = cbChecked
             TabOrder = 1
             OnClick = checkClick
-            ExplicitLeft = 144
-            ExplicitWidth = 81
           end
         end
         object pnlEdtProduct: TPanel
@@ -336,7 +328,6 @@ object frameAddProduct: TframeAddProduct
           Padding.Bottom = 19
           ParentBackground = False
           TabOrder = 1
-          ExplicitHeight = 41
           object edtProduct: TEdit
             Left = 0
             Top = 0

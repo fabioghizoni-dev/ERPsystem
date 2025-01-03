@@ -61,12 +61,8 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSyncClick(Sender: TObject);
-    procedure imgClick(Sender: TObject);
     procedure btnReportClick(Sender: TObject);
     procedure dbGrid2CellClick(Column: TColumn);
-    procedure btnCloseClick(Sender: TObject);
-    procedure btnMaxClick(Sender: TObject);
-    procedure btnMinClick(Sender: TObject);
     procedure btnConfigClick(Sender: TObject);
     procedure dbGridCellClick(Column: TColumn);
     procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
@@ -105,17 +101,51 @@ begin
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
+var
+  num: Double;
+  qry: TFDQuery;
 begin
-
   frameAddProductMain.Visible := False;
   frameStockMain.Visible := False;
   frameAddProductMain.edtDate.Text := DateToStr(Now);
 
-end;
+  qry := TFDQuery.Create(nil);
 
-procedure TfrmMain.imgClick(Sender: TObject);
-begin
-//
+  try
+    if not (DM = nil) and DM.ConnDbERP.Connected then
+    begin
+      qry.Connection := DM.ConnDbERP;
+      qry.SQL.Text := 'SELECT SUM(qntd_estoque) AS total_estoque FROM produtos;';
+      qry.Open;
+
+      if not qry.IsEmpty then
+      begin
+        num := qry.FieldByName('total_estoque').AsFloat;
+        frameStockMain.edtStock.Text := FormatFloat('###,###,###,###', num);
+        frameStockMain.edtStock.Text := StringReplace(frameStockMain.edtStock.Text, ',', '.', [rfReplaceAll]);
+      end
+      else
+        frameStockMain.edtStock.Text := '0';
+
+    end
+    else
+      ShowMessage('Erro com a inicialização');
+
+    qry.Close;
+    qry.SQL.Text := 'SELECT id_produto, nome_produto FROM produtos;';
+    qry.Open;
+
+    while not qry.Eof do
+    begin
+      frameStockMain.combo.Items.AddObject(qry.FieldByName('nome_produto').AsString,
+      TObject(qry.FieldByName('id_produto').AsInteger));
+      qry.Next;
+    end;
+
+  finally
+    frameStockMain.combo.ItemIndex := 0;
+    FreeAndNil(qry);
+  end;
 end;
 
 procedure TfrmMain.btnAddClientClick(Sender: TObject);
@@ -154,31 +184,9 @@ begin
 
 end;
 
-procedure TfrmMain.btnCloseClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmMain.btnConfigClick(Sender: TObject);
 begin
   frmDB.ShowModal;
-end;
-
-procedure TfrmMain.btnMaxClick(Sender: TObject);
-begin
-
-  if Self.WindowState = TWindowState.wsNormal then
-  begin
-    Self.WindowState := TWindowState.wsMaximized;
-  end
-  else
-    Self.WindowState := TWindowState.wsNormal;
-
-end;
-
-procedure TfrmMain.btnMinClick(Sender: TObject);
-begin
-  Self.WindowState := TWindowState.wsMinimized;
 end;
 
 procedure TfrmMain.btnStockClick(Sender: TObject);
@@ -200,28 +208,8 @@ begin
 end;
 
 procedure TfrmMain.btnSyncClick(Sender: TObject);
-var
-  qry: TFDQuery;
 begin
-
-  try
-
-    qry := TFDQuery.Create(nil);
-    qry.Connection := DM.ConnDbERP;
-
-
-    DM.clientes.RefreshMetadata;
-    DM.endereco.RefreshMetadata;
-    DM.produtos.RefreshMetadata;
-    dbGrid.Refresh;
-    dbGrid2.Refresh;
-
-  finally
-
-    FreeAndNil(qry);
-
-  end;
-
+  DM.ConnDbERP.RefreshMetadataCache;
 end;
 
 procedure TfrmMain.dbGridCellClick(Column: TColumn);
@@ -275,6 +263,16 @@ begin
     edtAmount.Text := ds.FieldByName('qntd_prod_estoque').AsString;
     edtCod.Text := ds.FieldByName('cod_produto_id').AsString;
     edtPrice.Text := 'R$ ' + ds.FieldByName('preco_unitario').AsString + ',00';
+
+  end;
+
+  if frameStockMain.Visible = True then
+  begin
+
+    if not frameStockMain.combo.ItemIndex = 0 then
+    begin
+      frameStockMain.edtStock.Text := '';
+    end;
 
   end;
 

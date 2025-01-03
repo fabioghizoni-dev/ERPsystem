@@ -2,6 +2,7 @@ object frmVenda: TfrmVenda
   Left = 0
   Top = 0
   AutoSize = True
+  BorderIcons = [biSystemMenu, biMinimize]
   ClientHeight = 621
   ClientWidth = 904
   Color = clBtnFace
@@ -471,20 +472,22 @@ object frmVenda: TfrmVenda
         Columns = <
           item
             Expanded = False
-            FieldName = 'nome_vendedor'
-            Title.Caption = 'Nome do Vendedor'
+            FieldName = 'id_prod_vendido'
+            Title.Alignment = taCenter
+            Title.Caption = 'ID Produto'
             Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clBlack
+            Title.Font.Color = clWindowText
             Title.Font.Height = -15
             Title.Font.Name = 'Roboto Cn'
-            Title.Font.Style = [fsBold]
-            Width = 150
+            Title.Font.Style = []
+            Width = 120
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'nome_prod_vendido'
-            Title.Caption = 'Produto Vendido'
+            Title.Alignment = taCenter
+            Title.Caption = 'Nome do Produto'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -15
@@ -495,38 +498,54 @@ object frmVenda: TfrmVenda
           end
           item
             Expanded = False
-            FieldName = 'id_prod_vendido'
-            Title.Caption = 'ID do Produto Vendido'
+            FieldName = 'preco_prod'
+            Title.Alignment = taCenter
+            Title.Caption = 'Pre'#231'o Produto'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -15
             Title.Font.Name = 'Roboto Cn'
             Title.Font.Style = [fsBold]
-            Width = 150
+            Width = 120
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'nome_vendedor'
+            Title.Alignment = taCenter
+            Title.Caption = 'Nome Vendedor'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -15
+            Title.Font.Name = 'Roboto Cn'
+            Title.Font.Style = [fsBold]
+            Width = 140
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'data_venda'
-            Title.Caption = 'Data da Venda'
+            Title.Alignment = taCenter
+            Title.Caption = 'Data Venda'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -15
             Title.Font.Name = 'Roboto Cn'
             Title.Font.Style = [fsBold]
-            Width = 130
+            Width = 120
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'qntd_total_vendida'
-            Title.Caption = 'Quantidade Total Vendida'
+            FieldName = 'qntd_vendida'
+            Title.Alignment = taCenter
+            Title.Caption = 'Quantidade Vendida'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -15
             Title.Font.Name = 'Roboto Cn'
             Title.Font.Style = [fsBold]
-            Width = 160
+            Width = 140
             Visible = True
           end>
       end
@@ -573,11 +592,14 @@ object frmVenda: TfrmVenda
     object vendasdata_venda: TDateField
       FieldName = 'data_venda'
       Origin = 'data_venda'
-      EditMask = '!99/99/00;1;_'
     end
-    object vendasqntd_total_vendida: TIntegerField
-      FieldName = 'qntd_total_vendida'
-      Origin = 'qntd_total_vendida'
+    object vendaspreco_prod: TCurrencyField
+      FieldName = 'preco_prod'
+      Origin = 'preco_prod'
+    end
+    object vendasqntd_vendida: TIntegerField
+      FieldName = 'qntd_vendida'
+      Origin = 'qntd_vendida'
     end
   end
 end

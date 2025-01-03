@@ -20,11 +20,6 @@ type
     dtSrc: TDataSource;
     dtSrc2: TDataSource;
     dtSrc3: TDataSource;
-    clientesid_cliente: TIntegerField;
-    clientesnome_cliente: TWideStringField;
-    clientescpf_cliente: TWideStringField;
-    clientescelular_cliente: TWideStringField;
-    clientesdata_adicionado: TDateField;
     endereconome_cliente_identify: TIntegerField;
     enderecopais_cliente: TWideStringField;
     enderecoestado_cliente: TWideStringField;
@@ -34,6 +29,11 @@ type
     produtosnome_produto: TWideStringField;
     produtospreco_unitario: TCurrencyField;
     produtosqntd_estoque: TIntegerField;
+    clientesid_cliente: TIntegerField;
+    clientesnome_cliente: TWideStringField;
+    clientescpf_cliente: TWideStringField;
+    clientescelular_cliente: TWideStringField;
+    clientesdata_adicionado: TDateField;
     procedure DataModuleCreate(Sender: TObject);
     procedure produtosBeforeApplyUpdates(DataSet: TFDDataSet);
     procedure produtosAfterApplyUpdates(DataSet: TFDDataSet; AErrors: Integer);

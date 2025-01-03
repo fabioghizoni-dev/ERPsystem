@@ -36,15 +36,14 @@ type
     pnlBtns: TPanel;
     btnExclude: TButton;
     pnl: TPanel;
-    pnlEdtName: TPanel;
-    edtNameClient: TEdit;
     pnlID: TPanel;
     edtDate: TEdit;
     pnl2: TPanel;
-    lblNameClient: TLabel;
     lblDate: TLabel;
+    check: TCheckBox;
     procedure btnAddProductClick(Sender: TObject);
     procedure btnExcludeClick(Sender: TObject);
+    procedure checkClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -70,14 +69,16 @@ var
   data_lanca: TDate;
 begin
 
-  if Trim(edtPrice.Text) = '' then
-    raise Exception.Create('O preço do produto deve ser informado.');
-
-  if not TryStrToInt(edtAmount.Text, qntd_estoque) then
-    raise Exception.Create('Estoque inválido!');
+//  if Trim(edtPrice.Text) = '' then
+//  raise Exception.Create('O preço do produto deve ser informado.');
 
   qry := TFDQuery.Create(nil);
-  qry.Connection := DM.ConnDbERP;
+
+  if not (DM = nil and DM.ConnDbERP.Connected = True) then
+  begin
+    qry.Connection := DM.ConnDbERP;
+  end;
+
   data_lanca := StrToDate(edtDate.Text);
   nome_produto := edtProduct.Text;
   preco_unitario := StrToCurr(edtPrice.Text);
@@ -100,22 +101,22 @@ begin
 
         end;
 
-      qry.Close;
-      qry.SQL.Text :=
-
-      'INSERT INTO produtos' +
-      '(id_produto, nome_produto, preco_unitario, qntd_estoque)' + sLineBreak +
-      'VALUES(nextval(''produtos_id_produto_seq''::regclass), '', 0, 0);';
-
-      qry.ParamByName('nome_produto').AsString := nome_produto;
-      qry.ParamByName('preco_unitario').AsCurrency := preco_unitario;
-      qry.ParamByName('qntd_estoque').AsInteger := qntd_estoque;
-
-      qry.ExecSQL;
-
-      DM.produtos.RefreshMetadata;
-      frmMain.dbGrid2.Update;
-      frmMain.dbGrid2.Refresh;
+//      qry.Close;
+//      qry.SQL.Text :=
+//
+//      'INSERT INTO produtos' +
+//      '(id_produto, nome_produto, preco_unitario, qntd_estoque)' + sLineBreak +
+//      'VALUES(nextval(''produtos_id_produto_seq''::regclass), '', 0, 0);';
+//
+//      qry.ParamByName('nome_produto').AsString := nome_produto;
+//      qry.ParamByName('preco_unitario').AsCurrency := preco_unitario;
+//      qry.ParamByName('qntd_estoque').AsInteger := qntd_estoque;
+//
+//      qry.ExecSQL;
+//
+//      DM.produtos.RefreshMetadata;
+//      frmMain.dbGrid2.Update;
+//      frmMain.dbGrid2.Refresh;
 
     end;
 
@@ -144,6 +145,19 @@ begin
     dlg.Show;
 
   end;
+
+end;
+
+procedure TframeAddProduct.checkClick(Sender: TObject);
+begin
+
+  if check.Checked then
+  begin
+    edtDate.Text := DateToStr(Now);
+  end
+  else
+    edtDate.Text := '';
+
 
 end;
 

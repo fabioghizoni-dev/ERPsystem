@@ -46,12 +46,13 @@ type
     pnlName: TPanel;
     edtName: TEdit;
     lblName: TLabel;
+    check: TCheckBox;
     vendasnome_vendedor: TWideStringField;
     vendasnome_prod_vendido: TWideStringField;
     vendasid_prod_vendido: TIntegerField;
     vendasdata_venda: TDateField;
-    vendasqntd_total_vendida: TIntegerField;
-    check: TCheckBox;
+    vendaspreco_prod: TCurrencyField;
+    vendasqntd_vendida: TIntegerField;
     procedure FormCreate(Sender: TObject);
     procedure btnSaleClick(Sender: TObject);
     procedure btnExludeClick(Sender: TObject);
@@ -87,9 +88,9 @@ end;
 
 procedure TfrmVenda.btnSaleClick(Sender: TObject);
 var
-  id:
+  pId:
   Integer;
-  nomeprod:
+  pNomeProd:
   String;
   qry:
   TFDQuery;
@@ -97,73 +98,62 @@ begin
 
   qry := TFDQuery.Create(nil);
   qry.Connection := DM.ConnDbERP;
+  edtNameProd.Text := 'Salgadinho Fandangos';
+  pNomeProd := edtNameProd.Text;
+
+  if Trim(edtCodProd.Text) = EmptyStr then
+  begin
+    FreeAndNil(qry);
+    Exit;
+  end
+  else
+    pId := StrToInt(edtCodProd.Text);
 
   try
 
-    if Trim(edtNameProd.Text) = EmptyStr then
-    begin
-      //ShowMessage('Nome do Produto inválido');
-    end;
-
-    if Trim(edtCodProd.Text) = EmptyStr then
-    begin
-      //ShowMessage('Código do Produto inválido!');
-    end;
-
-    if Trim(edtDate.Text) = EmptyStr then
-    begin
-      //ShowMessage('Data inválida');
-    end;
-
-    if Trim(edtAmount.Text) = EmptyStr then
-    begin
-      //ShowMessage('Quantidade inválida');
-    end;
-
-    qry.SQL.Text :=
-
-    'SELECT nome_produto FROM produtos WHERE nome_produto = :nome_produto;';
-
-    qry.ParamByName('nome_produto').AsString := edtNameProd.Text;
-
-    qry.Open;
-
-    if qry.IsEmpty then
+    if not (Trim(edtNameProd.Text) = EmptyStr) then
     begin
 
+      qry.SQL.Text :=
 
+      'SELECT id_produto, nome_produto FROM produtos WHERE id_produto = :pId ' +
+      'AND nome_produto = :pNomeProd;';
 
-    end
-    else
-    begin
+      qry.ParamByName('pNomeProd').AsString := pNomeProd;
+      qry.ParamByName('pId').AsInteger := pId;
 
-      ShowMessage('Produto já existe!');
+      qry.Open;
+
+      if not qry.IsEmpty then
+      begin
+        ShowMessage('Este produto não foi listado' + sLineBreak + ' ' +
+        IntToStr(pId) + sLineBreak + ' ' + pNomeProd);
+      end;
 
     end;
 
-    Exit;
+    if not (Trim(edtCodProd.Text) = EmptyStr) then
+    begin
 
-    qry.Close;
+      qry.Close;
 
-     // Configura a consulta SQL
-    qry.SQL.Text :=
+      qry.SQL.Text :=
 
-      'INSERT INTO vendas ' +
-      '(nome_vendedor, nome_prod_vendido, id_prod_vendido, data_venda, ' +
-      'qntd_total_vendida, preco_prod) VALUES (' +
-      ':nome_vendedor, :nome_prod_vendido, :id_prod_vendido, :data_venda, ' +
-      ':qntd_total_vendida, :preco_prod);';
+      'SELECT id_prod_vendido, nome_prod_vendido FROM vendas WHERE ' +
+      'id_prod_vendido = :pId AND nome_prod_vendido = :pNomeProd;';
 
-    // Define os parâmetros da consulta
-    qry.ParamByName('nome_vendedor').AsString := edtName.Text;
-    qry.ParamByName('nome_prod_vendido').AsString := edtNameProd.Text;
-    qry.ParamByName('id_prod_vendido').AsInteger := StrToInt(edtCodProd.Text);
-    qry.ParamByName('data_venda').AsDateTime := StrToDate(edtDate.Text);
-    qry.ParamByName('qntd_total_vendida').AsInteger := StrToInt(edtAmount.Text);
-    qry.ParamByName('preco_prod').AsCurrency := StrToCurr(edtPrice.Text);
+      qry.ParamByName('pNomeProd').AsString := pNomeProd;
+      qry.ParamByName('pId').AsInteger := pId;
 
-    qry.ExecSQL;
-    vendas.RefreshMetadata;
+      qry.Open;
+
+      if qry.IsEmpty then
+      begin
+        ShowMessage('Este produto não existe' + sLineBreak + sLineBreak + ' ' + pNomeProd);
+      end
+      else
+
+    end;
 
   finally
 

@@ -32,7 +32,7 @@ object DM: TDM
     object clientesid_cliente: TIntegerField
       FieldName = 'id_cliente'
       Origin = 'id_cliente'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object clientesnome_cliente: TWideStringField
       FieldName = 'nome_cliente'
@@ -42,11 +42,13 @@ object DM: TDM
     object clientescpf_cliente: TWideStringField
       FieldName = 'cpf_cliente'
       Origin = 'cpf_cliente'
+      ReadOnly = True
       Size = 8190
     end
     object clientescelular_cliente: TWideStringField
       FieldName = 'celular_cliente'
       Origin = 'celular_cliente'
+      ReadOnly = True
       Size = 8190
     end
     object clientesdata_adicionado: TDateField
