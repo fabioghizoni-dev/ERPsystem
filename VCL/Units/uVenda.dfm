@@ -1,6 +1,7 @@
 object frmVenda: TfrmVenda
   Left = 0
   Top = 0
+  AutoSize = True
   ClientHeight = 621
   ClientWidth = 904
   Color = clBtnFace
@@ -269,7 +270,7 @@ object frmVenda: TfrmVenda
             ExplicitHeight = 23
           end
         end
-        object Panel1: TPanel
+        object pnlName: TPanel
           Left = 0
           Top = 0
           Width = 193
@@ -343,7 +344,6 @@ object frmVenda: TfrmVenda
           Font.Style = []
           ParentFont = False
           Layout = tlCenter
-          ExplicitLeft = 643
           ExplicitHeight = 19
         end
         object lblDiscount: TLabel
@@ -530,6 +530,17 @@ object frmVenda: TfrmVenda
             Visible = True
           end>
       end
+      object check: TCheckBox
+        Left = 588
+        Top = 226
+        Width = 97
+        Height = 17
+        Caption = 'Data Atual'
+        Checked = True
+        State = cbChecked
+        TabOrder = 6
+        OnClick = checkClick
+      end
     end
   end
   object ds: TDataSource
@@ -539,6 +550,7 @@ object frmVenda: TfrmVenda
   end
   object vendas: TFDTable
     Active = True
+    IndexFieldNames = 'id_prod_vendido'
     Connection = DM.ConnDbERP
     ResourceOptions.AssignedValues = [rvEscapeExpand]
     TableName = 'vendas'

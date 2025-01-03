@@ -45,15 +45,14 @@ type
     lblStockGrid: TLabel;
     dbGrid: TDBGrid;
     dbGrid2: TDBGrid;
-    btnMax: TButton;
-    btnMin: TButton;
-    btnClose: TButton;
     imgConn: TImage;
     pnlImgs: TPanel;
     img2: TImage;
     img3: TImage;
     pnlRightImg: TPanel;
     pnlLeftImg: TPanel;
+    pnlColor: TPanel;
+    pnlColor2: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnAddClientClick(Sender: TObject);
@@ -70,6 +69,10 @@ type
     procedure btnMinClick(Sender: TObject);
     procedure btnConfigClick(Sender: TObject);
     procedure dbGridCellClick(Column: TColumn);
+    procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
   private
     procedure KeysDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     { Private declarations }
@@ -89,7 +92,16 @@ uses
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-//
+
+  frameAddProductMain.edtDate.Text := DateToStr(Now);
+
+  frameAddClientMain.edtName.Text := 'Fabio';
+  frameAddClientMain.maskCPF.Text := '101.462.419-32';
+  frameAddClientMain.maskPhone.Text := '(43)99828-0078';
+  frameAddClientMain.edtState.Text := 'Paraná';
+  frameAddClientMain.edtCity.Text := 'Manoel Ribas';
+  frameAddClientMain.edtDistrict.Text := 'Centro';
+
 end;
 
 procedure TfrmMain.FormShow(Sender: TObject);
@@ -277,6 +289,38 @@ procedure TfrmMain.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftStat
 begin
 
   KeysDown(Sender, Key, Shift);
+
+end;
+
+procedure TfrmMain.FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+
+//  if frameAddClientMain.Visible = True then
+//  begin
+//    dbGrid.DataSource.DataSet.Last;
+//  end;
+//
+//  if frameAddProductMain.Visible = True then
+//  begin
+//    dbGrid2.DataSource.DataSet.Last;
+//  end;
+
+end;
+
+procedure TfrmMain.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+
+//  if frameAddClientMain.Visible = True then
+//  begin
+//    dbGrid.DataSource.DataSet.Next;
+//  end;
+//
+//  if frameAddProductMain.Visible = True then
+//  begin
+//    dbGrid2.DataSource.DataSet.Next;
+//  end;
 
 end;
 

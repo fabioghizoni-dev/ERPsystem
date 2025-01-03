@@ -43,7 +43,7 @@ type
     pnlDiscount: TPanel;
     edtDiscount: TEdit;
     lblDiscount: TLabel;
-    Panel1: TPanel;
+    pnlName: TPanel;
     edtName: TEdit;
     lblName: TLabel;
     vendasnome_vendedor: TWideStringField;
@@ -51,9 +51,11 @@ type
     vendasid_prod_vendido: TIntegerField;
     vendasdata_venda: TDateField;
     vendasqntd_total_vendida: TIntegerField;
+    check: TCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure btnSaleClick(Sender: TObject);
     procedure btnExludeClick(Sender: TObject);
+    procedure checkClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -100,45 +102,46 @@ begin
 
     if Trim(edtNameProd.Text) = EmptyStr then
     begin
-      edtNameProd.Text := 'Produto 1';
+      //ShowMessage('Nome do Produto inválido');
     end;
 
     if Trim(edtCodProd.Text) = EmptyStr then
     begin
-      edtCodProd.Text := '1';
+      //ShowMessage('Código do Produto inválido!');
     end;
 
     if Trim(edtDate.Text) = EmptyStr then
     begin
-      edtDate.Text := DateToStr(Now);
+      //ShowMessage('Data inválida');
     end;
 
     if Trim(edtAmount.Text) = EmptyStr then
     begin
-      edtAmount.Text := IntToStr(2);
+      //ShowMessage('Quantidade inválida');
     end;
 
     qry.SQL.Text :=
 
-    'SELECT id_produto, nome_produto FROM produtos;';
+    'SELECT nome_produto FROM produtos WHERE nome_produto = :nome_produto;';
+
+    qry.ParamByName('nome_produto').AsString := edtNameProd.Text;
 
     qry.Open;
-
-    id := qry.FieldByName('id_produto').AsInteger;
-    nomeprod := qry.FieldByName('nome_produto').AsString;
 
     if qry.IsEmpty then
     begin
 
-      ShowMessage(IntToStr(id) + nomeprod);
+
 
     end
     else
     begin
 
-      ShowMessage('Erro em ' + IntToStr(id) + nomeprod);
+      ShowMessage('Produto já existe!');
 
     end;
+
+    Exit;
 
     qry.Close;
 
@@ -168,6 +171,18 @@ begin
     FreeAndNil(qry);
 
   end;
+
+end;
+
+procedure TfrmVenda.checkClick(Sender: TObject);
+begin
+
+  if check.Checked then
+  begin
+    edtDate.Text := DateToStr(Now);
+  end
+  else
+    edtDate.Text := '';
 
 end;
 

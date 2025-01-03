@@ -40,8 +40,10 @@ type
     edtDate: TEdit;
     pnl2: TPanel;
     lblDate: TLabel;
+    check: TCheckBox;
     procedure btnAddProductClick(Sender: TObject);
     procedure btnExcludeClick(Sender: TObject);
+    procedure checkClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -141,6 +143,19 @@ begin
     dlg.Show;
 
   end;
+
+end;
+
+procedure TframeAddProduct.checkClick(Sender: TObject);
+begin
+
+  if check.Checked then
+  begin
+    edtDate.Text := DateToStr(Now);
+  end
+  else
+    edtDate.Text := '';
+
 
 end;
 

@@ -5,9 +5,9 @@ object frmMain: TfrmMain
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
-  BorderStyle = bsNone
-  ClientHeight = 842
-  ClientWidth = 1406
+  AutoSize = True
+  ClientHeight = 803
+  ClientWidth = 1390
   Color = 16580327
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,18 +16,20 @@ object frmMain: TfrmMain
   Font.Style = []
   KeyPreview = True
   Position = poScreenCenter
-  RoundedCorners = rcOn
+  RoundedCorners = rcOff
   StyleElements = [seFont]
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
+  OnMouseWheelDown = FormMouseWheelDown
+  OnMouseWheelUp = FormMouseWheelUp
   OnShow = FormShow
   TextHeight = 15
   object pnlClient: TPanel
     Left = 0
     Top = 0
-    Width = 1406
-    Height = 842
+    Width = 1390
+    Height = 803
     Align = alClient
     BevelOuter = bvNone
     Color = clSilver
@@ -36,7 +38,7 @@ object frmMain: TfrmMain
     object pnlTop: TPanel
       Left = 0
       Top = 0
-      Width = 1406
+      Width = 1390
       Height = 113
       Margins.Left = 0
       Margins.Top = 0
@@ -49,7 +51,7 @@ object frmMain: TfrmMain
       TabOrder = 0
       object pnlBtnConf: TPanel
         AlignWithMargins = True
-        Left = 1108
+        Left = 1092
         Top = 8
         Width = 290
         Height = 105
@@ -63,67 +65,7 @@ object frmMain: TfrmMain
         Padding.Bottom = 55
         ParentBackground = False
         TabOrder = 0
-        ExplicitHeight = 123
         object btnDbGrid: TButton
-          AlignWithMargins = True
-          Left = 61
-          Top = 3
-          Width = 52
-          Height = 44
-          Cursor = crHandPoint
-          Align = alLeft
-          ImageAlignment = iaCenter
-          ImageIndex = 0
-          Images = imgList32bits
-          TabOrder = 0
-          ExplicitHeight = 52
-        end
-        object btnConfig: TButton
-          AlignWithMargins = True
-          Left = 3
-          Top = 3
-          Width = 52
-          Height = 44
-          Cursor = crHandPoint
-          Align = alLeft
-          ImageAlignment = iaCenter
-          ImageIndex = 6
-          Images = imgList32bits
-          TabOrder = 1
-          OnClick = btnConfigClick
-          ExplicitHeight = 52
-        end
-        object btnMax: TButton
-          AlignWithMargins = True
-          Left = 177
-          Top = 3
-          Width = 52
-          Height = 44
-          Cursor = crHandPoint
-          Align = alRight
-          ImageAlignment = iaCenter
-          ImageIndex = 3
-          Images = imgList32bits
-          TabOrder = 2
-          OnClick = btnMaxClick
-          ExplicitHeight = 52
-        end
-        object btnMin: TButton
-          AlignWithMargins = True
-          Left = 119
-          Top = 3
-          Width = 52
-          Height = 44
-          Cursor = crHandPoint
-          Align = alLeft
-          ImageAlignment = iaCenter
-          ImageIndex = 2
-          Images = imgList32bits
-          TabOrder = 3
-          OnClick = btnMinClick
-          ExplicitHeight = 52
-        end
-        object btnClose: TButton
           AlignWithMargins = True
           Left = 235
           Top = 3
@@ -132,11 +74,23 @@ object frmMain: TfrmMain
           Cursor = crHandPoint
           Align = alRight
           ImageAlignment = iaCenter
-          ImageIndex = 1
+          ImageIndex = 0
           Images = imgList32bits
-          TabOrder = 4
-          OnClick = btnCloseClick
-          ExplicitHeight = 52
+          TabOrder = 0
+        end
+        object btnConfig: TButton
+          AlignWithMargins = True
+          Left = 177
+          Top = 3
+          Width = 52
+          Height = 44
+          Cursor = crHandPoint
+          Align = alRight
+          ImageAlignment = iaCenter
+          ImageIndex = 6
+          Images = imgList32bits
+          TabOrder = 1
+          OnClick = btnConfigClick
         end
       end
       object pnlBtns: TPanel
@@ -156,7 +110,6 @@ object frmMain: TfrmMain
         Padding.Right = 8
         ParentBackground = False
         TabOrder = 1
-        ExplicitHeight = 111
         object btnAddClient: TButton
           AlignWithMargins = True
           Left = 129
@@ -176,9 +129,6 @@ object frmMain: TfrmMain
           TabOrder = 0
           WordWrap = True
           OnClick = btnAddClientClick
-          ExplicitLeft = 146
-          ExplicitTop = 18
-          ExplicitHeight = 113
         end
         object btnAddProduct: TButton
           AlignWithMargins = True
@@ -200,9 +150,6 @@ object frmMain: TfrmMain
           Images = imgList
           TabOrder = 1
           OnClick = btnAddProductClick
-          ExplicitLeft = 266
-          ExplicitTop = 18
-          ExplicitHeight = 113
         end
         object btnReport: TButton
           AlignWithMargins = True
@@ -222,9 +169,6 @@ object frmMain: TfrmMain
           Images = imgList
           TabOrder = 2
           OnClick = btnReportClick
-          ExplicitLeft = 506
-          ExplicitTop = 18
-          ExplicitHeight = 113
         end
         object btnStock: TButton
           AlignWithMargins = True
@@ -244,9 +188,6 @@ object frmMain: TfrmMain
           Images = imgList
           TabOrder = 3
           OnClick = btnStockClick
-          ExplicitLeft = 386
-          ExplicitTop = 18
-          ExplicitHeight = 113
         end
         object btnSync: TButton
           AlignWithMargins = True
@@ -266,9 +207,6 @@ object frmMain: TfrmMain
           Images = imgList
           TabOrder = 4
           OnClick = btnSyncClick
-          ExplicitLeft = 626
-          ExplicitTop = 18
-          ExplicitHeight = 113
         end
         object pnlImgs: TPanel
           AlignWithMargins = True
@@ -291,37 +229,53 @@ object frmMain: TfrmMain
             Width = 56
             Height = 55
             Align = alRight
+            BevelOuter = bvNone
             Color = 16580327
+            Padding.Left = 4
+            Padding.Top = 4
+            Padding.Right = 4
+            Padding.Bottom = 4
             ParentBackground = False
             TabOrder = 0
-            ExplicitLeft = 56
-            object img3: TImage
-              Left = -1
-              Top = 1
-              Width = 56
-              Height = 53
-              Align = alRight
-              Center = True
-              Picture.Data = {
-                0954506E67496D61676589504E470D0A1A0A0000000D49484452000000380000
-                00380806000000A8863B1E00000006624B474400FF00FF00FFA0BDA793000001
-                DD4944415478DAEDD93F4802511CC0F1DFFD5143423003858C909232B022A8AD
-                A66CA8A52017D71C8AA2A5AD255BDA5A226A4970C9C5A0A686FE40D456509490
-                91FD213250488A2324F5F4BA86204153F48ED7E5EFBBDC708F7BEFC3BDE1B847
-                C13F8F22BD0004221081FF3B042ABDEA068ECDCC05482FB0943697179DE50205
-                D28B2F1158D0511250576F06B55647DA91532AC101F712910668EB7382A1A99D
-                B429A7F8E315848E030844603160EC3E0EC1831BC8F2594901344B837DA0158C
-                963AB2C0D3ED204442314971DF996D46E819B193059E6C05E1F95A1E60439B11
-                7A4711282F307C7407D187B82C4093C500D6FE66B2C0A11616AC7A5A1660F835
-                0B3BB73C0211884004221081084420021198774CB7890153AD3CBF57A3EF029C
-                45336481A44220027F00355A1D302A0D69534E99741292094E1AE05F0F81BF00
-                2B3E5DE2F9942E93CEE43DD860540CC7B26A4E026079A74B5234E8727BC46D30
-                5F60F2855DFFBA47CEF91158D5C061D7A43E0DE91501A82E00A1A6C030469C84
-                C97743847F7D87E5FF1603EA4300E19C57F3D3873EDF1B11A0C3E55E132F1395
-                3CA3580225ACEE6F78A78800C5ED7721BE850E3981E2022FC56DDC4904E8708D
-                2F01D08D720201B24F7B7EEF2C11A01242A0D243A0D243A0D243A0D2FB04ADF9
-                C64891B396D90000000049454E44AE426082}
-              ExplicitLeft = -39
+            object pnlColor2: TPanel
+              Left = 4
+              Top = 4
+              Width = 48
+              Height = 47
+              Align = alClient
+              BevelOuter = bvNone
+              Color = clWhite
+              ParentBackground = False
+              TabOrder = 0
+              object img3: TImage
+                Left = 0
+                Top = 0
+                Width = 48
+                Height = 47
+                Align = alClient
+                Center = True
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D49484452000000380000
+                  00380806000000A8863B1E00000006624B474400FF00FF00FFA0BDA793000001
+                  DD4944415478DAEDD93F4802511CC0F1DFFD5143423003858C909232B022A8AD
+                  A66CA8A52017D71C8AA2A5AD255BDA5A226A4970C9C5A0A686FE40D456509490
+                  91FD213250488A2324F5F4BA86204153F48ED7E5EFBBDC708F7BEFC3BDE1B847
+                  C13F8F22BD0004221081FF3B042ABDEA068ECDCC05482FB0943697179DE50205
+                  D28B2F1158D0511250576F06B55647DA91532AC101F712910668EB7382A1A99D
+                  B429A7F8E315848E030844603160EC3E0EC1831BC8F2594901344B837DA0158C
+                  963AB2C0D3ED204442314971DF996D46E819B193059E6C05E1F95A1E60439B11
+                  7A4711282F307C7407D187B82C4093C500D6FE66B2C0A11616AC7A5A1660F835
+                  0B3BB73C0211884004221081084420021198774CB7890153AD3CBF57A3EF029C
+                  45336481A44220027F00355A1D302A0D69534E99741292094E1AE05F0F81BF00
+                  2B3E5DE2F9942E93CEE43DD860540CC7B26A4E026079A74B5234E8727BC46D30
+                  5F60F2855DFFBA47CEF91158D5C061D7A43E0DE91501A82E00A1A6C030469C84
+                  C97743847F7D87E5FF1603EA4300E19C57F3D3873EDF1B11A0C3E55E132F1395
+                  3CA3580225ACEE6F78A78800C5ED7721BE850E3981E2022FC56DDC4904E8708D
+                  2F01D08D720201B24F7B7EEF2C11A01242A0D243A0D243A0D243A0D2FB04ADF9
+                  C64891B396D90000000049454E44AE426082}
+                ExplicitLeft = -2
+                ExplicitWidth = 56
+              end
             end
           end
           object pnlLeftImg: TPanel
@@ -330,80 +284,97 @@ object frmMain: TfrmMain
             Width = 56
             Height = 55
             Align = alLeft
+            BevelOuter = bvNone
             Color = 16580327
+            Padding.Left = 4
+            Padding.Top = 4
+            Padding.Right = 4
+            Padding.Bottom = 4
             ParentBackground = False
             TabOrder = 1
-            object img2: TImage
-              Left = 1
-              Top = 1
-              Width = 56
-              Height = 53
-              Align = alLeft
-              Center = True
-              Picture.Data = {
-                0954506E67496D61676589504E470D0A1A0A0000000D49484452000000380000
-                00380806000000A8863B1E00000006624B474400FF00FF00FFA0BDA793000007
-                2A4944415478DAED990B5053471440EFBE901002284834A0555020EA0486F1D3
-                B15014818A588B5345FCA0A332B4F553116D2DA254AD565171EA07B03069A53A
-                8A56406DC5FFC84F141DABB64CA91FFC00550405140D2849C87BBD2F22560509
-                E46182E39D79B3FBF6EDDEBD27BB7BEFEE86C05B2EC4D006BC037C076804807E
-                7E7EDD341A8D2D666D1886113F2BA769FA5A7676F65F1D12D0DDDDDD4C281486
-                104282F1D5A399BE4A6C6C6CA4A9A9A9AA0E05E8EBEB3B09476A1D667BB55417
-                EBCDCCCACA92771840848B46A317B7A289129FD338D287452251427A7AFA63A3
-                056C03DCCBF22F4551A127508C0ED0C7C76714268738D0A9C6674A666666AAD1
-                00B20E05E526666DB9D087F2101F1942961A05204ECD99383513DBD2B9BD9882
-                E24AFA956FA86F0B3A9FB9460188D3F36F4C5C74A94B618F6E3D7930AC2F0F3C
-                9D4DA08B3981ADB92AD87556FD72D51A8C935D314ED6191410E1EC31297E5D1D
-                211F60A8D404DC1D7930C8810716A6AF76BBE79C1AE4392F86431CC58F701433
-                0C0A88D3732A1AB2E3E572130AB43043A53CF8D0C9043A99B5DCD58E336AD876
-                EA3924868EAF33323236181A7025022E65F37C1EC0600776FA99808753D323D5
-                9224E3544DCA6D84DC8C8E66BE4101718A266032CBAD2705ABC6998148A0AF46
-                80C5697570AE48C34ED1ED3845671814D0DBDBFB579C4A13BD70D4968D31D59F
-                0E65E50125E45CAD67B3293882130D0A8823988249503B01A622E0048302FAFA
-                F8A43200E3DB03108D4BCBC8CC0C321820B3CB49965D649E1193D345F281239F
-                53C0B337D4B068F8FD722FA75A5F32E1FA25C300EE76FE1D558C29AAED06C7AE
-                99C3ACE1CF3DCCB1D3B7E1FCA52A983ADA11ECBB5B34D9BEB8B406920FDF80F7
-                6562F0F3E8D1589E98AD8291CE35D0DBBC827DDD4F26178E3310A03417134F10
-                8A4123B0011EF5FC5BD2FE42B856F208024738C06099B8C9F67F1454C0BE1325
-                20B5EF042163A58DE51ADCB9F15455007595D8099C24C1855E8601DC259D8E1A
-                7E01A10D6121FF2F8FEB3470B7EA313874B7C480DD4C7B5CBCC57714602B1681
-                9929EFC58F2C5C5D15030C994682AFEE3408A0D6C8DDCE4340641B0E02ABC9FA
-                EA7A4154D5BBA1E6EE2632A5F09C3E6A38D96C3347C778E37064720A48132F32
-                FAC0497DD5700378FE0B3E5496DDC3F562C511DE03102ABA11EFEC7AA300D442
-                1E09D886C9744E94112689F81F0CE544156780873EB6078A7715B3FA06C32750
-                CF389380837A9FE63905D4421E0E58861A57E8695114F14F8FE6CA266E0119D4
-                77342019B36DF5A83BC13F7D1A8615C628011B218F0444E03A5AABBB7AE46148
-                248C4A8FE112AE5D001B4DDE2E2902ABBE0E20E8FCFA8ACA8700D5578AC98C7B
-                BDDBC38EF6034C8402542FC30D00804882C77D4BDC7F35F81F8D1240AD407752
-                FE1410987FC82CDD2EAD8C0C10643A567F076814809FCEFFCECA84568DC7ACEF
-                8291762E1EBD1817A8FC13A0F222EE4DF0484737DC7D527C006B64170FC06720
-                E49540C1C6E36505843027E0099D962A5FF7D0A80083C217F5A2195E142A9B82
-                AFE66C997527CB0BF2EF23073556C275579BB3174F161488868D7DBE1E513E5F
-                BAF642F523C5B3BAB568D54E9AAE5FB52F2EE6B64101478585995A10CB85E8D7
-                97E0ABE8A5CFCC86C8B09B3DED6C1DB5569F3F0F25739FDEC4DBC7C783F9E0C1
-                DAFCADD2B21B5FC5C4F769C2965A7C56D7328A0D47E2E2946F1C3070C15219A1
-                EB7763FC726DAE8E8BB44FD6F22F43BDD5E5E5703D2808340A85B69C6769094E
-                6969C097486045DCD6AC82EB37BD9B3790E4D3343D696FFC9A2B6F0C705C78D4
-                300A980318925F1FE408A9DE19B39C6F2AE09BDF8D8D858AA4246D71D7D05090
-                84858152A5AE991AB1A21E77072D9D421ED03413B02F7ECDE976070C0A8FF264
-                18E63866CD74FA314678E54EFEC46F684D5E1E14CF99A32D734848000B777748
-                3E702CF7B78C934375ECFA319A3B222D76755EBB0106CF8EB456F129D6FD77D7
-                B58D5020B8BC63FDF2FE55C9C950B67EBDB6CC2E22026C828399A9DFACB8A254
-                A9FAEBAA0BB781B728A5C6B5355EB6558081F3A27EC6AD62ABCF69DFCE09C9EF
-                BA37C5ED7E4A8AF6BDCB840950111894BFEAC76D6EADD5850E4DBE37367A26E7
-                8063C316B9F1080F031A50BAB679263D24E2BCF0E2CB1EB5E79E5EAF580C1902
-                1B7BF5CBBB73AFD2A3B5BA50343C8A72DDB369D5654E01C7CF5BF213269FB5C1
-                20569491572FF24DCBCBB43F8E5262A759DB6F207B1DD1D6C371625A6CF46CCE
-                00D978674E2CCB306BDD4683C0B7E2768DE7A57CED0D70AE6C802253DCDDB2AD
-                BA50AABAD455DAC9E572754B1575026CF09CB97A1804A6B4A63AE2D4316D3858
-                E7E9FF5045519DF5D14728C62375D39A339C00068645CDC37DE2667D0C626552
-                D165357B9ADDD3BB3F5F5F5DA8672E3A9B2D9C00E2FA63FF465EA0AF51EFA995
-                650C1ED94B4D0476FAEA42C21FD2E2A217720418855B1026446FA3F03CD1D027
-                179BFC2474342D862CDDD6E0DCA5AE3461241C18C599D0842EDF1F1B5DC00960
-                479677801D5DDE7AC0FF003B72A057956C9BED0000000049454E44AE426082}
-              ExplicitLeft = 0
-              ExplicitTop = 0
-              ExplicitHeight = 56
+            object pnlColor: TPanel
+              Left = 4
+              Top = 4
+              Width = 48
+              Height = 47
+              Align = alClient
+              BevelOuter = bvNone
+              Color = clWhite
+              ParentBackground = False
+              TabOrder = 0
+              object img2: TImage
+                Left = 0
+                Top = 0
+                Width = 48
+                Height = 47
+                Align = alClient
+                Center = True
+                Picture.Data = {
+                  0954506E67496D61676589504E470D0A1A0A0000000D49484452000000380000
+                  00380806000000A8863B1E00000006624B474400FF00FF00FFA0BDA793000007
+                  2A4944415478DAED990B5053471440EFBE901002284834A0555020EA0486F1D3
+                  B15014818A588B5345FCA0A332B4F553116D2DA254AD565171EA07B03069A53A
+                  8A56406DC5FFC84F141DABB64CA91FFC00550405140D2849C87BBD2F22560509
+                  E46182E39D79B3FBF6EDDEBD27BB7BEFEE86C05B2EC4D006BC037C076804807E
+                  7E7EDD341A8D2D666D1886113F2BA769FA5A7676F65F1D12D0DDDDDD4C281486
+                  104282F1D5A399BE4A6C6C6CA4A9A9A9AA0E05E8EBEB3B09476A1D667BB55417
+                  EBCDCCCACA92771840848B46A317B7A289129FD338D287452251427A7AFA63A3
+                  056C03DCCBF22F4551A127508C0ED0C7C76714268738D0A9C6674A666666AAD1
+                  00B20E05E526666DB9D087F2101F1942961A05204ECD99383513DBD2B9BD9882
+                  E24AFA956FA86F0B3A9FB9460188D3F36F4C5C74A94B618F6E3D7930AC2F0F3C
+                  9D4DA08B3981ADB92AD87556FD72D51A8C935D314ED6191410E1EC31297E5D1D
+                  211F60A8D404DC1D7930C8810716A6AF76BBE79C1AE4392F86431CC58F701433
+                  0C0A88D3732A1AB2E3E572130AB43043A53CF8D0C9043A99B5DCD58E336AD876
+                  EA3924868EAF33323236181A7025022E65F37C1EC0600776FA99808753D323D5
+                  9224E3544DCA6D84DC8C8E66BE4101718A266032CBAD2705ABC6998148A0AF46
+                  80C5697570AE48C34ED1ED3845671814D0DBDBFB579C4A13BD70D4968D31D59F
+                  0E65E50125E45CAD67B3293882130D0A8823988249503B01A622E0048302FAFA
+                  F8A43200E3DB03108D4BCBC8CC0C321820B3CB49965D649E1193D345F281239F
+                  53C0B337D4B068F8FD722FA75A5F32E1FA25C300EE76FE1D558C29AAED06C7AE
+                  99C3ACE1CF3DCCB1D3B7E1FCA52A983ADA11ECBB5B34D9BEB8B406920FDF80F7
+                  6562F0F3E8D1589E98AD8291CE35D0DBBC827DDD4F26178E3310A03417134F10
+                  8A4123B0011EF5FC5BD2FE42B856F208024738C06099B8C9F67F1454C0BE1325
+                  20B5EF042163A58DE51ADCB9F15455007595D8099C24C1855E8601DC259D8E1A
+                  7E01A10D6121FF2F8FEB3470B7EA313874B7C480DD4C7B5CBCC57714602B1681
+                  9929EFC58F2C5C5D15030C994682AFEE3408A0D6C8DDCE4340641B0E02ABC9FA
+                  EA7A4154D5BBA1E6EE2632A5F09C3E6A38D96C3347C778E37064720A48132F32
+                  FAC0497DD5700378FE0B3E5496DDC3F562C511DE03102ABA11EFEC7AA300D442
+                  1E09D886C9744E94112689F81F0CE544156780873EB6078A7715B3FA06C32750
+                  CF389380837A9FE63905D4421E0E58861A57E8695114F14F8FE6CA266E0119D4
+                  77342019B36DF5A83BC13F7D1A8615C628011B218F0444E03A5AABBB7AE46148
+                  248C4A8FE112AE5D001B4DDE2E2902ABBE0E20E8FCFA8ACA8700D5578AC98C7B
+                  BDDBC38EF6034C8402542FC30D00804882C77D4BDC7F35F81F8D1240AD407752
+                  FE1410987FC82CDD2EAD8C0C10643A567F076814809FCEFFCECA84568DC7ACEF
+                  8291762E1EBD1817A8FC13A0F222EE4DF0484737DC7D527C006B64170FC06720
+                  E49540C1C6E36505843027E0099D962A5FF7D0A80083C217F5A2195E142A9B82
+                  AFE66C997527CB0BF2EF23073556C275579BB3174F161488868D7DBE1E513E5F
+                  BAF642F523C5B3BAB568D54E9AAE5FB52F2EE6B64101478585995A10CB85E8D7
+                  97E0ABE8A5CFCC86C8B09B3DED6C1DB5569F3F0F25739FDEC4DBC7C783F9E0C1
+                  DAFCADD2B21B5FC5C4F769C2965A7C56D7328A0D47E2E2946F1C3070C15219A1
+                  EB7763FC726DAE8E8BB44FD6F22F43BDD5E5E5703D2808340A85B69C6769094E
+                  6969C097486045DCD6AC82EB37BD9B3790E4D3343D696FFC9A2B6F0C705C78D4
+                  300A980318925F1FE408A9DE19B39C6F2AE09BDF8D8D858AA4246D71D7D05090
+                  84858152A5AE991AB1A21E77072D9D421ED03413B02F7ECDE976070C0A8FF264
+                  18E63866CD74FA314678E54EFEC46F684D5E1E14CF99A32D734848000B777748
+                  3E702CF7B78C934375ECFA319A3B222D76755EBB0106CF8EB456F129D6FD77D7
+                  B58D5020B8BC63FDF2FE55C9C950B67EBDB6CC2E22026C828399A9DFACB8A254
+                  A9FAEBAA0BB781B728A5C6B5355EB6558081F3A27EC6AD62ABCF69DFCE09C9EF
+                  BA37C5ED7E4A8AF6BDCB840950111894BFEAC76D6EADD5850E4DBE37367A26E7
+                  8063C316B9F1080F031A50BAB679263D24E2BCF0E2CB1EB5E79E5EAF580C1902
+                  1B7BF5CBBB73AFD2A3B5BA50343C8A72DDB369D5654E01C7CF5BF213269FB5C1
+                  20569491572FF24DCBCBB43F8E5262A759DB6F207B1DD1D6C371625A6CF46CCE
+                  00D978674E2CCB306BDD4683C0B7E2768DE7A57CED0D70AE6C802253DCDDB2AD
+                  BA50AABAD455DAC9E572754B1575026CF09CB97A1804A6B4A63AE2D4316D3858
+                  E7E9FF5045519DF5D14728C62375D39A339C00068645CDC37DE2667D0C626552
+                  D165357B9ADDD3BB3F5F5F5DA8672E3A9B2D9C00E2FA63FF465EA0AF51EFA995
+                  650C1ED94B4D0476FAEA42C21FD2E2A217720418855B1026446FA3F03CD1D027
+                  179BFC2474342D862CDDD6E0DCA5AE3461241C18C599D0842EDF1F1B5DC00960
+                  479677801D5DDE7AC0FF003B72A057956C9BED0000000049454E44AE426082}
+                ExplicitLeft = -2
+                ExplicitTop = 1
+                ExplicitWidth = 56
+                ExplicitHeight = 51
+              end
             end
           end
         end
@@ -412,8 +383,8 @@ object frmMain: TfrmMain
     object pnlMain: TPanel
       Left = 0
       Top = 156
-      Width = 1406
-      Height = 686
+      Width = 1390
+      Height = 647
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -423,14 +394,12 @@ object frmMain: TfrmMain
       Color = 6845186
       ParentBackground = False
       TabOrder = 1
-      ExplicitTop = 177
-      ExplicitHeight = 665
       inline frameStockMain: TframeStock
         AlignWithMargins = True
         Left = 10
         Top = 0
-        Width = 737
-        Height = 676
+        Width = 721
+        Height = 637
         Margins.Left = 10
         Margins.Top = 0
         Margins.Right = 0
@@ -443,29 +412,29 @@ object frmMain: TfrmMain
         TabOrder = 2
         Visible = False
         ExplicitLeft = 10
-        ExplicitWidth = 737
-        ExplicitHeight = 655
+        ExplicitWidth = 721
+        ExplicitHeight = 637
         inherited pnlAddClient: TPanel
-          Width = 737
-          Height = 676
+          Width = 721
+          Height = 637
           StyleElements = [seFont, seClient, seBorder]
-          ExplicitWidth = 737
-          ExplicitHeight = 655
+          ExplicitWidth = 721
+          ExplicitHeight = 637
           inherited pnlMargins: TPanel
-            Width = 661
-            Height = 529
+            Width = 645
+            Height = 490
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 661
-            ExplicitHeight = 508
+            ExplicitWidth = 645
+            ExplicitHeight = 490
             inherited pnlLbls: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited lblFull: TLabel
-                Left = 428
+                Left = 412
                 Height = 25
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 428
+                ExplicitLeft = 412
               end
               inherited lblNameClient: TLabel
                 Height = 25
@@ -473,13 +442,13 @@ object frmMain: TfrmMain
               end
             end
             inherited pnlEdts: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited pnlEdtStock: TPanel
-                Left = 428
+                Left = 412
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 428
+                ExplicitLeft = 412
                 inherited edtStock: TEdit
                   Cursor = crIBeam
                   StyleElements = [seFont, seClient, seBorder]
@@ -493,18 +462,18 @@ object frmMain: TfrmMain
               end
             end
             inherited pnlLbls2: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited lblProduct: TLabel
                 Height = 25
                 StyleElements = [seFont, seClient, seBorder]
               end
             end
             inherited pnlEdts2: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited pnlEdtName: TPanel
                 StyleElements = [seFont, seClient, seBorder]
                 inherited edtNameProduct: TEdit
@@ -514,18 +483,19 @@ object frmMain: TfrmMain
               end
             end
             inherited btnVenda: TButton
-              Top = 463
-              Width = 641
-              ExplicitTop = 442
-              ExplicitWidth = 641
+              Top = 424
+              Width = 625
+              ExplicitLeft = 10
+              ExplicitTop = 424
+              ExplicitWidth = 625
             end
           end
           inherited pnlTitle: TPanel
-            Width = 577
+            Width = 561
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 577
+            ExplicitWidth = 561
             inherited lblTitle: TLabel
-              Width = 571
+              Width = 555
               Height = 35
               StyleElements = [seFont, seClient, seBorder]
             end
@@ -534,10 +504,10 @@ object frmMain: TfrmMain
       end
       object pnlGrid: TPanel
         AlignWithMargins = True
-        Left = 747
+        Left = 731
         Top = 0
         Width = 649
-        Height = 676
+        Height = 637
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 10
@@ -551,7 +521,6 @@ object frmMain: TfrmMain
         Padding.Bottom = 5
         ParentBackground = False
         TabOrder = 3
-        ExplicitHeight = 655
         object lblClientGrid: TLabel
           AlignWithMargins = True
           Left = 5
@@ -578,7 +547,7 @@ object frmMain: TfrmMain
           Left = 5
           Top = 319
           Width = 639
-          Height = 40
+          Height = 19
           Margins.Left = 0
           Margins.Top = 10
           Margins.Right = 0
@@ -594,7 +563,6 @@ object frmMain: TfrmMain
           Font.Style = []
           ParentFont = False
           ExplicitWidth = 74
-          ExplicitHeight = 19
         end
         object dbGrid: TDBGrid
           Left = 5
@@ -675,7 +643,7 @@ object frmMain: TfrmMain
           Left = 5
           Top = 349
           Width = 639
-          Height = 322
+          Height = 283
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -753,8 +721,8 @@ object frmMain: TfrmMain
         AlignWithMargins = True
         Left = 10
         Top = 0
-        Width = 737
-        Height = 676
+        Width = 721
+        Height = 637
         Margins.Left = 10
         Margins.Top = 0
         Margins.Right = 0
@@ -767,97 +735,83 @@ object frmMain: TfrmMain
         TabOrder = 1
         Visible = False
         ExplicitLeft = 10
-        ExplicitWidth = 737
-        ExplicitHeight = 655
+        ExplicitWidth = 721
+        ExplicitHeight = 637
         inherited pnlAddClient: TPanel
-          Width = 737
-          Height = 676
+          Width = 721
+          Height = 637
           StyleElements = [seFont, seClient, seBorder]
-          ExplicitWidth = 737
-          ExplicitHeight = 655
+          ExplicitWidth = 721
+          ExplicitHeight = 637
           inherited pnlMargins: TPanel
-            Width = 661
-            Height = 529
+            Width = 645
+            Height = 490
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 661
-            ExplicitHeight = 508
+            ExplicitWidth = 645
+            ExplicitHeight = 490
             inherited pnlLbls: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
-              inherited lblProduct: TLabel
-                Height = 25
-                StyleElements = [seFont, seClient, seBorder]
-              end
+              ExplicitWidth = 645
               inherited lblAmount: TLabel
-                Left = 436
+                Left = 420
                 StyleElements = [seFont, seClient, seBorder]
                 ExplicitLeft = 436
               end
-            end
-            inherited pnlEdts: TPanel
-              Width = 661
-              StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
-              inherited pnlEdtProduct: TPanel
-                StyleElements = [seFont, seClient, seBorder]
-                inherited edtProduct: TEdit
-                  StyleElements = [seFont, seClient, seBorder]
-                end
-              end
-              inherited pnlAmount: TPanel
-                Left = 436
-                StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 436
-                inherited edtAmount: TEdit
-                  StyleElements = [seFont, seClient, seBorder]
-                end
-              end
-            end
-            inherited pnlLbls2: TPanel
-              Width = 661
-              StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
               inherited lblProdID: TLabel
                 Height = 25
                 StyleElements = [seFont, seClient, seBorder]
               end
-              inherited lblPrice: TLabel
-                Left = 436
-                Height = 25
-                StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 436
-              end
             end
-            inherited pnlEdts2: TPanel
-              Width = 661
+            inherited pnlEdts: TPanel
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
+              inherited pnlAmount: TPanel
+                Left = 420
+                StyleElements = [seFont, seClient, seBorder]
+                ExplicitLeft = 420
+                inherited edtAmount: TEdit
+                  StyleElements = [seFont, seClient, seBorder]
+                end
+              end
               inherited pnlCod: TPanel
                 StyleElements = [seFont, seClient, seBorder]
                 inherited edtCod: TEdit
                   StyleElements = [seFont, seClient, seBorder]
                 end
               end
-              inherited pnlPrice: TPanel
-                Left = 436
+            end
+            inherited pnlLbls2: TPanel
+              Width = 645
+              StyleElements = [seFont, seClient, seBorder]
+              ExplicitWidth = 645
+              inherited lblPrice: TLabel
+                Height = 25
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 436
+              end
+            end
+            inherited pnlEdts2: TPanel
+              Width = 645
+              StyleElements = [seFont, seClient, seBorder]
+              ExplicitWidth = 645
+              inherited pnlPrice: TPanel
+                StyleElements = [seFont, seClient, seBorder]
                 inherited edtPrice: TEdit
                   StyleElements = [seFont, seClient, seBorder]
                 end
               end
             end
             inherited pnlBtns: TPanel
-              Top = 488
-              Width = 661
+              Top = 449
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitTop = 467
-              ExplicitWidth = 661
+              ExplicitTop = 449
+              ExplicitWidth = 645
               inherited btnAddProduct: TButton
-                Left = 346
+                Left = 330
                 Width = 315
-                ExplicitLeft = 346
+                ExplicitLeft = 330
                 ExplicitWidth = 315
               end
               inherited btnExclude: TButton
@@ -866,47 +820,48 @@ object frmMain: TfrmMain
               end
             end
             inherited pnl: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
-              inherited pnlEdtName: TPanel
+              ExplicitWidth = 645
+              inherited pnlID: TPanel
+                Left = 420
                 StyleElements = [seFont, seClient, seBorder]
-                inherited edtNameClient: TEdit
+                ExplicitLeft = 420
+                inherited edtDate: TEdit
                   StyleElements = [seFont, seClient, seBorder]
                 end
               end
-              inherited pnlID: TPanel
-                Left = 436
+              inherited pnlEdtProduct: TPanel
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 436
-                inherited edtDate: TEdit
+                inherited edtProduct: TEdit
                   StyleElements = [seFont, seClient, seBorder]
                 end
               end
             end
             inherited pnl2: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
-              inherited lblNameClient: TLabel
-                Height = 25
-                StyleElements = [seFont, seClient, seBorder]
-              end
+              ExplicitWidth = 645
               inherited lblDate: TLabel
-                Left = 436
+                Left = 420
                 StyleElements = [seFont, seClient, seBorder]
                 ExplicitLeft = 436
+              end
+              inherited lblProduct: TLabel
+                Height = 25
+                StyleElements = [seFont, seClient, seBorder]
               end
             end
           end
           inherited pnlTitle: TPanel
-            Width = 577
+            Width = 561
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 577
+            ExplicitWidth = 561
             inherited lblTitle: TLabel
-              Width = 571
+              Width = 555
               Height = 35
               StyleElements = [seFont, seClient, seBorder]
+              ExplicitWidth = 555
             end
           end
         end
@@ -915,8 +870,8 @@ object frmMain: TfrmMain
         AlignWithMargins = True
         Left = 10
         Top = 0
-        Width = 737
-        Height = 676
+        Width = 721
+        Height = 637
         Margins.Left = 10
         Margins.Top = 0
         Margins.Right = 0
@@ -928,59 +883,56 @@ object frmMain: TfrmMain
         ParentColor = False
         TabOrder = 0
         ExplicitLeft = 10
-        ExplicitWidth = 737
-        ExplicitHeight = 655
+        ExplicitWidth = 721
+        ExplicitHeight = 637
         inherited pnlAddClient: TPanel
-          Width = 737
-          Height = 676
+          Width = 721
+          Height = 637
           StyleElements = [seFont, seClient, seBorder]
-          ExplicitWidth = 737
-          ExplicitHeight = 655
+          ExplicitWidth = 721
+          ExplicitHeight = 637
           inherited pnlMargins: TPanel
-            Width = 661
-            Height = 529
+            Width = 645
+            Height = 490
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 661
-            ExplicitHeight = 508
+            ExplicitWidth = 645
+            ExplicitHeight = 490
             inherited pnlLbls: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited lblPhone: TLabel
-                Left = 515
+                Left = 499
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 515
+                ExplicitLeft = 499
               end
               inherited lblCPF: TLabel
-                Width = 288
+                Width = 272
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitWidth = 288
+                ExplicitWidth = 272
               end
               inherited lblName: TLabel
                 StyleElements = [seFont, seClient, seBorder]
               end
             end
             inherited pnlEdts: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited pnlMaskCPF: TPanel
-                Width = 251
+                Width = 235
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitWidth = 251
+                ExplicitWidth = 235
                 inherited maskCPF: TMaskEdit
-                  Width = 241
-                  EditMask = ''
-                  MaxLength = 11
-                  Text = ''
+                  Width = 225
                   StyleElements = [seFont, seClient, seBorder]
-                  ExplicitWidth = 241
+                  ExplicitWidth = 225
                 end
               end
               inherited pnlPhone: TPanel
-                Left = 515
+                Left = 499
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 515
+                ExplicitLeft = 499
                 inherited maskPhone: TMaskEdit
                   StyleElements = [seFont, seClient, seBorder]
                 end
@@ -993,41 +945,41 @@ object frmMain: TfrmMain
               end
             end
             inherited pnlLbls2: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited lblState: TLabel
                 StyleElements = [seFont, seClient, seBorder]
               end
               inherited lblCity: TLabel
-                Width = 314
+                Width = 298
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitWidth = 314
+                ExplicitWidth = 298
               end
               inherited lblDistrict: TLabel
-                Left = 515
+                Left = 499
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 515
+                ExplicitLeft = 499
               end
             end
             inherited pnlEdts2: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited pnlEdtCity: TPanel
-                Width = 278
+                Width = 262
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitWidth = 278
+                ExplicitWidth = 262
                 inherited edtCity: TEdit
-                  Width = 278
+                  Width = 262
                   StyleElements = [seFont, seClient, seBorder]
-                  ExplicitWidth = 278
+                  ExplicitWidth = 262
                 end
               end
               inherited pnlEdtDistrict: TPanel
-                Left = 515
+                Left = 499
                 StyleElements = [seFont, seClient, seBorder]
-                ExplicitLeft = 515
+                ExplicitLeft = 499
                 inherited edtDistrict: TEdit
                   StyleElements = [seFont, seClient, seBorder]
                 end
@@ -1040,28 +992,28 @@ object frmMain: TfrmMain
               end
             end
             inherited pnlLbls4: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
               inherited lblMemo: TLabel
                 StyleElements = [seFont, seClient, seBorder]
               end
             end
             inherited pnl5: TPanel
-              Width = 661
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 661
+              ExplicitWidth = 645
             end
             inherited pnlBtns: TPanel
-              Top = 488
-              Width = 661
+              Top = 449
+              Width = 645
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitTop = 467
-              ExplicitWidth = 661
+              ExplicitTop = 449
+              ExplicitWidth = 645
               inherited btnAdd: TButton
-                Left = 346
+                Left = 330
                 Width = 315
-                ExplicitLeft = 346
+                ExplicitLeft = 330
                 ExplicitWidth = 315
               end
               inherited btnExclude: TButton
@@ -1071,13 +1023,13 @@ object frmMain: TfrmMain
             end
           end
           inherited pnlTitle: TPanel
-            Width = 577
+            Width = 561
             StyleElements = [seFont, seClient, seBorder]
-            ExplicitWidth = 577
+            ExplicitWidth = 561
             inherited lblTitle: TLabel
-              Width = 571
+              Width = 555
               StyleElements = [seFont, seClient, seBorder]
-              ExplicitWidth = 571
+              ExplicitWidth = 555
             end
           end
         end
@@ -1086,14 +1038,13 @@ object frmMain: TfrmMain
     object pnlLbls: TPanel
       Left = 0
       Top = 113
-      Width = 1406
+      Width = 1390
       Height = 43
       Align = alTop
       BevelOuter = bvNone
       Color = 6845186
       ParentBackground = False
       TabOrder = 2
-      ExplicitTop = 134
       object lblCadClients: TLabel
         AlignWithMargins = True
         Left = 129
@@ -1222,14 +1173,14 @@ object frmMain: TfrmMain
       end
       object imgConn: TImage
         AlignWithMargins = True
-        Left = 1360
-        Top = 0
+        Left = 1344
+        Top = 5
         Width = 36
-        Height = 43
+        Height = 33
         Margins.Left = 0
-        Margins.Top = 0
+        Margins.Top = 5
         Margins.Right = 10
-        Margins.Bottom = 0
+        Margins.Bottom = 5
         Align = alRight
         Center = True
         Picture.Data = {
@@ -1274,6 +1225,8 @@ object frmMain: TfrmMain
           19B09DB8592FE7958C77C6D57768139E8AB68AB1D94480F5178B2E9E46FA7CED
           0C943D6BA6931300F3205E189F7FBB97D2442451547EA5FC3A4BE91901F8AF9E
           39007300FE027D2B283F72261FED0000000049454E44AE426082}
+        ExplicitLeft = 1360
+        ExplicitTop = 0
         ExplicitHeight = 46
       end
     end

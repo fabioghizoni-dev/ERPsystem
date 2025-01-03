@@ -34,7 +34,7 @@ object frameAddProduct: TframeAddProduct
       TabOrder = 0
       object pnlLbls: TPanel
         Left = 0
-        Top = 116
+        Top = 117
         Width = 557
         Height = 25
         Margins.Left = 0
@@ -46,6 +46,7 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 0
+        ExplicitTop = 116
         object lblAmount: TLabel
           AlignWithMargins = True
           Left = 332
@@ -93,7 +94,7 @@ object frameAddProduct: TframeAddProduct
       object pnlEdts: TPanel
         AlignWithMargins = True
         Left = 0
-        Top = 141
+        Top = 142
         Width = 557
         Height = 41
         Margins.Left = 0
@@ -105,6 +106,7 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 1
+        ExplicitTop = 141
         object pnlAmount: TPanel
           Left = 332
           Top = 0
@@ -153,7 +155,7 @@ object frameAddProduct: TframeAddProduct
       end
       object pnlLbls2: TPanel
         Left = 0
-        Top = 232
+        Top = 233
         Width = 557
         Height = 25
         Margins.Left = 0
@@ -165,6 +167,7 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 2
+        ExplicitTop = 232
         object lblPrice: TLabel
           Left = 0
           Top = 0
@@ -183,13 +186,12 @@ object frameAddProduct: TframeAddProduct
           Font.Style = []
           ParentFont = False
           Layout = tlCenter
-          ExplicitLeft = 332
           ExplicitHeight = 19
         end
       end
       object pnlEdts2: TPanel
         Left = 0
-        Top = 257
+        Top = 258
         Width = 557
         Height = 41
         Align = alTop
@@ -197,6 +199,7 @@ object frameAddProduct: TframeAddProduct
         Color = 16580327
         ParentBackground = False
         TabOrder = 3
+        ExplicitTop = 257
         object pnlPrice: TPanel
           Left = 0
           Top = 0
@@ -212,7 +215,6 @@ object frameAddProduct: TframeAddProduct
           Padding.Bottom = 15
           ParentBackground = False
           TabOrder = 0
-          ExplicitLeft = 332
           object edtPrice: TEdit
             Left = 0
             Top = 0
@@ -270,11 +272,11 @@ object frameAddProduct: TframeAddProduct
         Left = 0
         Top = 25
         Width = 557
-        Height = 41
+        Height = 45
         Margins.Left = 0
         Margins.Top = 0
         Margins.Right = 0
-        Margins.Bottom = 50
+        Margins.Bottom = 47
         Align = alTop
         BevelOuter = bvNone
         Color = 16580327
@@ -284,13 +286,14 @@ object frameAddProduct: TframeAddProduct
           Left = 332
           Top = 0
           Width = 225
-          Height = 41
+          Height = 45
           Align = alRight
           BevelOuter = bvNone
           Color = 16580327
-          Padding.Bottom = 15
           ParentBackground = False
           TabOrder = 0
+          ExplicitTop = 3
+          ExplicitHeight = 41
           object edtDate: TEdit
             Left = 0
             Top = 0
@@ -301,19 +304,39 @@ object frameAddProduct: TframeAddProduct
             TabOrder = 0
             ExplicitHeight = 23
           end
+          object check: TCheckBox
+            AlignWithMargins = True
+            Left = 1
+            Top = 28
+            Width = 79
+            Height = 17
+            Margins.Left = 1
+            Margins.Top = 2
+            Margins.Right = 145
+            Margins.Bottom = 0
+            Align = alBottom
+            Caption = 'Data Atual'
+            Checked = True
+            State = cbChecked
+            TabOrder = 1
+            OnClick = checkClick
+            ExplicitLeft = 144
+            ExplicitWidth = 81
+          end
         end
         object pnlEdtProduct: TPanel
           Left = 0
           Top = 0
           Width = 241
-          Height = 41
+          Height = 45
           Align = alLeft
           BevelOuter = bvNone
           Color = 16580327
           Padding.Right = 10
-          Padding.Bottom = 15
+          Padding.Bottom = 19
           ParentBackground = False
           TabOrder = 1
+          ExplicitHeight = 41
           object edtProduct: TEdit
             Left = 0
             Top = 0

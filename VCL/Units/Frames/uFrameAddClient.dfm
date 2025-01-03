@@ -478,6 +478,23 @@ object frameAddClient: TframeAddClient
           TabOrder = 1
           OnClick = check2Click
         end
+        object checkPadrao: TCheckBox
+          AlignWithMargins = True
+          Left = 260
+          Top = 0
+          Width = 104
+          Height = 24
+          Margins.Left = 100
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alLeft
+          Caption = 'Valores Padr'#227'o'
+          Checked = True
+          State = cbChecked
+          TabOrder = 2
+          OnClick = checkPadraoClick
+        end
       end
       object pnlBtns: TPanel
         Left = 0
